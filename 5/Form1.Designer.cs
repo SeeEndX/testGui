@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.pbMain = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.txtLog = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbMain)).BeginInit();
             this.SuspendLayout();
             // 
@@ -38,7 +39,7 @@
             // 
             this.pbMain.Location = new System.Drawing.Point(12, 7);
             this.pbMain.Name = "pbMain";
-            this.pbMain.Size = new System.Drawing.Size(599, 382);
+            this.pbMain.Size = new System.Drawing.Size(426, 382);
             this.pbMain.TabIndex = 0;
             this.pbMain.TabStop = false;
             this.pbMain.Paint += new System.Windows.Forms.PaintEventHandler(this.pbMain_Paint);
@@ -50,11 +51,20 @@
             this.timer1.Interval = 30;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // txtLog
+            // 
+            this.txtLog.Location = new System.Drawing.Point(446, 10);
+            this.txtLog.Name = "txtLog";
+            this.txtLog.Size = new System.Drawing.Size(174, 379);
+            this.txtLog.TabIndex = 1;
+            this.txtLog.Text = "";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(623, 401);
+            this.Controls.Add(this.txtLog);
             this.Controls.Add(this.pbMain);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -67,5 +77,6 @@
 
         private PictureBox pbMain;
         private System.Windows.Forms.Timer timer1;
+        private RichTextBox txtLog;
     }
 }
