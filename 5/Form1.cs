@@ -4,11 +4,15 @@ namespace _5
 {
     public partial class Form1 : Form
     {
-        MyRectangle myRect;
         List<BaseObject> objects = new();
+        Player player;
         public Form1()
         {
             InitializeComponent();
+
+            player = new Player(pbMain.Width / 2, pbMain.Height / 2, 0);
+
+            objects.Add(player);
 
             objects.Add(new MyRectangle(50, 50, 0));
             objects.Add(new MyRectangle(100, 100, 45));
@@ -19,9 +23,12 @@ namespace _5
             var g = e.Graphics;
             g.Clear(Color.Black);
 
-            g.Transform = myRect.GetTransform();
+            foreach (var obj in objects)
+            {
+                g.Transform = obj.GetTransform();
+                obj.Render(g);
+            }
 
-            myRect.Render(g);
         }
     }
 }
