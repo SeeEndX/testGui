@@ -1,5 +1,8 @@
 using _5.Objects;
 
+// aimCircle = new AimCircle(pbMain.Width / 2 + rand.Next(10, 100), pbMain.Height / 2 + rand.Next(10, 100), 0);
+
+
 namespace _5
 {
     public partial class Form1 : Form
@@ -7,9 +10,13 @@ namespace _5
         List<BaseObject> objects = new();
         Player player;
         Marker marker;
+        int points = 0;
+
+        AimCircle aimCircle; //добавил
         public Form1()
         {
             InitializeComponent();
+            Random rand = new Random(); //добавил
 
             player = new Player(pbMain.Width / 2, pbMain.Height / 2, 0);
 
@@ -24,13 +31,24 @@ namespace _5
                 marker = null;
             };
 
+            lblPoints.Text = "Очки: 0";
+            //добавил
+            player.OnAimCircleOverlap += (aim) =>
+            {
+                objects.Remove(aim);
+                aimCircle = null;
+                objects.Add(new AimCircle(rand.Next(0, 350), rand.Next(0, 250), 0));
+                points++;
+                lblPoints.Text = "Очки: "+points;
+            };
+
             marker = new Marker(pbMain.Width / 2 + 50, pbMain.Height / 2 + 50, 0);
 
-            objects.Add(marker);
+            aimCircle = new AimCircle(pbMain.Width / 2 + 100, pbMain.Height / 2 - 100, 0); //добавил
 
+            objects.Add(marker);
             objects.Add(player);
-            objects.Add(new MyRectangle(50, 50, 0));
-            objects.Add(new MyRectangle(100, 100, 45));
+            objects.Add(aimCircle);
         }
 
         private void pbMain_Paint(object sender, PaintEventArgs e)
@@ -39,6 +57,7 @@ namespace _5
             g.Clear(Color.White);
 
             updatePlayer();
+
 
             foreach (var obj in objects.ToList())
             {

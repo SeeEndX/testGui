@@ -10,6 +10,7 @@ namespace _5.Objects
     class Player : BaseObject
     {
         public Action<Marker> OnMarkerOverlap;
+        public Action<AimCircle> OnAimCircleOverlap;
         public float vX, vY;
         public Player(float x, float y, float angle) : base(x, y, angle)
         {
@@ -40,6 +41,11 @@ namespace _5.Objects
             if (obj is Marker)
             {
                 OnMarkerOverlap(obj as Marker);
+            }
+
+            if (obj is AimCircle)
+            {
+                OnAimCircleOverlap(obj as AimCircle);
             }
         }
     }

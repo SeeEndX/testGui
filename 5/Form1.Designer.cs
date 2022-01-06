@@ -32,6 +32,7 @@
             this.pbMain = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.txtLog = new System.Windows.Forms.RichTextBox();
+            this.lblPoints = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbMain)).BeginInit();
             this.SuspendLayout();
             // 
@@ -39,7 +40,7 @@
             // 
             this.pbMain.Location = new System.Drawing.Point(12, 7);
             this.pbMain.Name = "pbMain";
-            this.pbMain.Size = new System.Drawing.Size(426, 382);
+            this.pbMain.Size = new System.Drawing.Size(428, 283);
             this.pbMain.TabIndex = 0;
             this.pbMain.TabStop = false;
             this.pbMain.Paint += new System.Windows.Forms.PaintEventHandler(this.pbMain_Paint);
@@ -55,21 +56,33 @@
             // 
             this.txtLog.Location = new System.Drawing.Point(446, 10);
             this.txtLog.Name = "txtLog";
-            this.txtLog.Size = new System.Drawing.Size(174, 379);
+            this.txtLog.Size = new System.Drawing.Size(174, 280);
             this.txtLog.TabIndex = 1;
             this.txtLog.Text = "";
+            // 
+            // lblPoints
+            // 
+            this.lblPoints.AutoSize = true;
+            this.lblPoints.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblPoints.Location = new System.Drawing.Point(365, 10);
+            this.lblPoints.Name = "lblPoints";
+            this.lblPoints.Size = new System.Drawing.Size(54, 20);
+            this.lblPoints.TabIndex = 2;
+            this.lblPoints.Text = "Очки: ";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(623, 401);
+            this.ClientSize = new System.Drawing.Size(623, 297);
+            this.Controls.Add(this.lblPoints);
             this.Controls.Add(this.txtLog);
             this.Controls.Add(this.pbMain);
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.pbMain)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -78,5 +91,6 @@
         private PictureBox pbMain;
         private System.Windows.Forms.Timer timer1;
         private RichTextBox txtLog;
+        private Label lblPoints;
     }
 }
