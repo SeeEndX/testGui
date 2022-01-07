@@ -13,7 +13,8 @@ namespace _5.Objects
         public float Y;
         public float Angle;
 
-        public Action<BaseObject, BaseObject> OnOverLap;
+        public bool IsColorChanged;
+        public Action<BaseObject, BaseObject> OnOverLap, NotOnOverLap;
         public BaseObject(float x, float y, float angle)
         {
             X = x;
@@ -57,6 +58,19 @@ namespace _5.Objects
             {
                 this.OnOverLap(this, obj);
             }
+        }
+
+        public virtual void NonOverlap(BaseObject obj)
+        {
+            if (this.NotOnOverLap != null)
+            {
+                this.NotOnOverLap(this, obj);
+            }
+        }
+        
+        public void ChangeColor(bool isChanged)
+        {
+            IsColorChanged = isChanged;
         }
     }
 }

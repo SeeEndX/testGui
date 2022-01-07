@@ -9,14 +9,40 @@ namespace _5.Objects
 {
     internal class AimCircle : BaseObject
     {
+        public Action<AimCircle> timer;
+        public int counter= 100;
         public AimCircle(float x, float y, float angle) : base(x, y, angle)
         {
         }
 
         public override void Render(Graphics g)
         {
-            g.FillEllipse(new SolidBrush(Color.Green), -10, -10, 30, 30);
-            g.DrawEllipse(new Pen(Color.Black, 2), -10, -10, 30, 30);
+            if (!IsColorChanged)
+            {
+                g.FillEllipse(
+                new SolidBrush(Color.LightGreen),
+                -15, -15,
+                30, 30
+                );
+                g.DrawEllipse(
+                    new Pen(Color.DarkCyan, 2),
+                    -15, -15,
+                    30, 30
+                    );
+            }
+            else
+            {
+                g.FillEllipse(
+                new SolidBrush(Color.Gray),
+                -15, -15,
+                30, 30
+                );
+                g.DrawEllipse(
+                    new Pen(Color.White, 2),
+                    -15, -15,
+                    30, 30
+                    );
+            }
         }
 
         public override GraphicsPath GetGraphicsPath()
@@ -25,5 +51,6 @@ namespace _5.Objects
             path.AddEllipse(-10, -10, 30, 30);
             return path;
         }
+        
     }
 }

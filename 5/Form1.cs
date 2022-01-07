@@ -10,15 +10,20 @@ namespace _5
         List<BaseObject> objects = new();
         Player player;
         Marker marker;
+        AimCircle aimCircle;
+        AimCircle aimCircle2;
         int points = 0;
 
-        AimCircle aimCircle; //добавил
         public Form1()
         {
             InitializeComponent();
-            Random rand = new Random(); //добавил
+            Random rand = new Random(); 
+            lblPoints.Text = "Очки: 0";
 
             player = new Player(pbMain.Width / 2, pbMain.Height / 2, 0);
+            marker = new Marker(pbMain.Width / 2 + 50, pbMain.Height / 2 + 50, 0);
+            aimCircle = new AimCircle(rand.Next(0, 350), rand.Next(0, 250), 0);
+            aimCircle2 = new AimCircle(rand.Next(0, 350), rand.Next(0, 250), 0);
 
             player.OnOverLap += (p, obj) =>
             {
@@ -31,8 +36,6 @@ namespace _5
                 marker = null;
             };
 
-            lblPoints.Text = "Очки: 0";
-            //добавил
             player.OnAimCircleOverlap += (aim) =>
             {
                 objects.Remove(aim);
@@ -42,13 +45,10 @@ namespace _5
                 lblPoints.Text = "Очки: "+points;
             };
 
-            marker = new Marker(pbMain.Width / 2 + 50, pbMain.Height / 2 + 50, 0);
-
-            aimCircle = new AimCircle(pbMain.Width / 2 + 100, pbMain.Height / 2 - 100, 0); //добавил
-
             objects.Add(marker);
             objects.Add(player);
             objects.Add(aimCircle);
+            objects.Add(aimCircle2);
         }
 
         private void pbMain_Paint(object sender, PaintEventArgs e)
@@ -57,7 +57,6 @@ namespace _5
             g.Clear(Color.White);
 
             updatePlayer();
-
 
             foreach (var obj in objects.ToList())
             {
@@ -116,5 +115,6 @@ namespace _5
             marker.X = e.X;
             marker.Y = e.Y;
         }
+
     }
 }
