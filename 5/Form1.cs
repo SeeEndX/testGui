@@ -12,6 +12,7 @@ namespace _5
         Marker marker;
         AimCircle aimCircle;
         AimCircle aimCircle2;
+        Killzone killZone = new(0, 0);
         int points = 0;
 
         public Form1()
@@ -24,10 +25,12 @@ namespace _5
             marker = new Marker(pbMain.Width / 2 + 50, pbMain.Height / 2 + 50, 0);
             aimCircle = new AimCircle(rand.Next(0, 350), rand.Next(0, 250), 0);
             aimCircle2 = new AimCircle(rand.Next(0, 350), rand.Next(0, 250), 0);
+            killZone = new Killzone(pbMain.Width / 3, pbMain.Height);
 
             player.OnOverLap += (p, obj) =>
             {
-                txtLog.Text = $"[{DateTime.Now:HH:mm:ss:ff}] Игрок пересекся с {obj}\n" + txtLog.Text;
+                if (!(obj is Killzone))
+                    txtLog.Text = $"[{DateTime.Now:HH:mm:ss:ff}] Игрок пересекся с {obj}\n" + txtLog.Text;
             };
 
             player.OnMarkerOverlap += (m) =>
@@ -42,13 +45,27 @@ namespace _5
                 aimCircle = null;
                 objects.Add(new AimCircle(rand.Next(0, 350), rand.Next(0, 250), 0));
                 points++;
-                lblPoints.Text = "Очки: "+points;
+                
             };
 
+            killZone.OnOverLap = (obj1, obj2) => {
+                obj2.ChangeColor(true);
+            };
+
+            killZone.NotOnOverLap = (obj1, obj2) => {
+                obj2.ChangeColor(false);
+            };
+
+            objects.Add(killZone);
             objects.Add(marker);
             objects.Add(player);
             objects.Add(aimCircle);
             objects.Add(aimCircle2);
+        }
+
+        private void KzMoving()
+        {
+                killZone.X = (killZone.X + 2) % (pbMain.Width * 2);
         }
 
         private void pbMain_Paint(object sender, PaintEventArgs e)
@@ -56,6 +73,9 @@ namespace _5
             var g = e.Graphics;
             g.Clear(Color.White);
 
+            lblPoints.Text = "Очки: " + points;
+
+            KzMoving();
             updatePlayer();
 
             foreach (var obj in objects.ToList())
@@ -64,6 +84,13 @@ namespace _5
                 {
                     player.Overlap(obj);
                     obj.Overlap(player);
+                }
+
+                if (!(obj is Killzone))
+                {
+                    if (killZone.Overlaps(obj, g))
+                        killZone.Overlap(obj);
+                    else killZone.NotOverLap(obj);
                 }
             }
 

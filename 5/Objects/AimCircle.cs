@@ -9,8 +9,6 @@ namespace _5.Objects
 {
     internal class AimCircle : BaseObject
     {
-        public Action<AimCircle> timer;
-        public int counter= 100;
         public AimCircle(float x, float y, float angle) : base(x, y, angle)
         {
         }
@@ -20,12 +18,12 @@ namespace _5.Objects
             if (!IsColorChanged)
             {
                 g.FillEllipse(
-                new SolidBrush(Color.LightGreen),
+                new SolidBrush(Color.Green),
                 -15, -15,
                 30, 30
                 );
                 g.DrawEllipse(
-                    new Pen(Color.DarkCyan, 2),
+                    new Pen(Color.Black, 2),
                     -15, -15,
                     30, 30
                     );

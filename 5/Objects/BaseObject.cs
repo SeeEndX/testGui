@@ -60,7 +60,7 @@ namespace _5.Objects
             }
         }
 
-        public virtual void NonOverlap(BaseObject obj)
+        public virtual void NotOverLap(BaseObject obj)
         {
             if (this.NotOnOverLap != null)
             {
