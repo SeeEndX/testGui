@@ -17,29 +17,13 @@ namespace _5.Objects
         {
             if (!IsColorChanged)
             {
-                g.FillEllipse(
-                new SolidBrush(Color.Green),
-                -15, -15,
-                30, 30
-                );
-                g.DrawEllipse(
-                    new Pen(Color.Black, 2),
-                    -15, -15,
-                    30, 30
-                    );
+                g.FillEllipse(new SolidBrush(Color.Green),-15, -15,30, 30 );
+                g.DrawEllipse(new Pen(Color.Black, 2), -15, -15,30, 30);
             }
             else
             {
-                g.FillEllipse(
-                new SolidBrush(Color.Gray),
-                -15, -15,
-                30, 30
-                );
-                g.DrawEllipse(
-                    new Pen(Color.White, 2),
-                    -15, -15,
-                    30, 30
-                    );
+                g.FillEllipse(new SolidBrush(Color.Gray),-15, -15,30, 30);
+                g.DrawEllipse( new Pen(Color.White, 2),-15, -15, 30, 30);
             }
         }
 

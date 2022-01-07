@@ -12,9 +12,9 @@ namespace _5.Objects
         public float X;
         public float Y;
         public float Angle;
-
         public bool IsColorChanged;
         public Action<BaseObject, BaseObject> OnOverLap, NotOnOverLap;
+
         public BaseObject(float x, float y, float angle)
         {
             X = x;

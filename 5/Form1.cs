@@ -20,7 +20,6 @@ namespace _5
             InitializeComponent();
             Random rand = new Random(); 
             lblPoints.Text = "Очки: 0";
-
             player = new Player(pbMain.Width / 2, pbMain.Height / 2, 0);
             marker = new Marker(pbMain.Width / 2 + 50, pbMain.Height / 2 + 50, 0);
             aimCircle = new AimCircle(rand.Next(0, 350), rand.Next(0, 250), 0);
@@ -48,11 +47,13 @@ namespace _5
                 
             };
 
-            killZone.OnOverLap = (obj1, obj2) => {
+            killZone.OnOverLap = (obj1, obj2) => 
+            {
                 obj2.ChangeColor(true);
             };
 
-            killZone.NotOnOverLap = (obj1, obj2) => {
+            killZone.NotOnOverLap = (obj1, obj2) => 
+            {
                 obj2.ChangeColor(false);
             };
 
@@ -72,9 +73,7 @@ namespace _5
         {
             var g = e.Graphics;
             g.Clear(Color.White);
-
             lblPoints.Text = "Очки: " + points;
-
             KzMoving();
             updatePlayer();
 
