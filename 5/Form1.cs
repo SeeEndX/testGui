@@ -1,8 +1,5 @@
 using _5.Objects;
 
-// aimCircle = new AimCircle(pbMain.Width / 2 + rand.Next(10, 100), pbMain.Height / 2 + rand.Next(10, 100), 0);
-
-
 namespace _5
 {
     public partial class Form1 : Form

@@ -38,9 +38,10 @@
             // 
             // pbMain
             // 
-            this.pbMain.Location = new System.Drawing.Point(12, 7);
+            this.pbMain.Location = new System.Drawing.Point(17, 12);
+            this.pbMain.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pbMain.Name = "pbMain";
-            this.pbMain.Size = new System.Drawing.Size(428, 283);
+            this.pbMain.Size = new System.Drawing.Size(611, 472);
             this.pbMain.TabIndex = 0;
             this.pbMain.TabStop = false;
             this.pbMain.Paint += new System.Windows.Forms.PaintEventHandler(this.pbMain_Paint);
@@ -54,9 +55,10 @@
             // 
             // txtLog
             // 
-            this.txtLog.Location = new System.Drawing.Point(446, 10);
+            this.txtLog.Location = new System.Drawing.Point(637, 17);
+            this.txtLog.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtLog.Name = "txtLog";
-            this.txtLog.Size = new System.Drawing.Size(174, 280);
+            this.txtLog.Size = new System.Drawing.Size(247, 464);
             this.txtLog.TabIndex = 1;
             this.txtLog.Text = "";
             // 
@@ -64,22 +66,24 @@
             // 
             this.lblPoints.AutoSize = true;
             this.lblPoints.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblPoints.Location = new System.Drawing.Point(365, 10);
+            this.lblPoints.Location = new System.Drawing.Point(521, 17);
+            this.lblPoints.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPoints.Name = "lblPoints";
-            this.lblPoints.Size = new System.Drawing.Size(54, 20);
+            this.lblPoints.Size = new System.Drawing.Size(84, 31);
             this.lblPoints.TabIndex = 2;
             this.lblPoints.Text = "Очки: ";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(623, 297);
+            this.ClientSize = new System.Drawing.Size(890, 495);
             this.Controls.Add(this.lblPoints);
             this.Controls.Add(this.txtLog);
             this.Controls.Add(this.pbMain);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Игра";
             ((System.ComponentModel.ISupportInitialize)(this.pbMain)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
