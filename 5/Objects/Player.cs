@@ -30,7 +30,6 @@ namespace _5.Objects
                 g.DrawEllipse(new Pen(Color.Gray, 2), -15, -15,30, 30);
                 g.DrawLine(new Pen(Color.Gray, 2), 0, 0, 25, 0);
             }
-
         }
 
         public override GraphicsPath GetGraphicsPath()
